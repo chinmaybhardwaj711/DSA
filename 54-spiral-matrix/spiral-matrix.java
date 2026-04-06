@@ -12,27 +12,36 @@ class Solution {
             for(int i=sc;i<=ec;i++){
                 ans.add(matrix[sr][i]); 
             }
-            sr++;
+           
             //down
-               for(int j=sr;j<=er;j++){
+               for(int j=sr+1;j<=er;j++){
                 ans.add(matrix[j][ec]);
             }
-            ec--;
+           
             //left
-            if(sr<=er){
-                for(int k=ec;k>=sc;k--){
+            
+                for(int k=ec-1;k>=sc;k--){
+                    if(sr==er){
+                        break;
+                    }
                     ans.add(matrix[er][k]);
                 }
-                er--;
-            }
+               
+           
 
             //up
-            if(sc<=ec){
-                   for(int l=er;l>=sr;l--){
+            
+                   for(int l=er-1;l>=sr+1;l--){
+                    if(sc==ec){
+                        break;
+                    }
                      ans.add(matrix[l][sc]);
                     }
-                    sc++;
-            }
+                    
+        sr++;
+        er--;
+        sc++;
+        ec--;
 
 
         }
