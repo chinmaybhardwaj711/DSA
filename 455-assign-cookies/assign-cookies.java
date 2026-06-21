@@ -5,14 +5,13 @@ class Solution {
         Arrays.sort(g);
         Arrays.sort(s);
     
-        int cnt =0;
         while(j<s.length && i<g.length){
             if(s[j] >=g[i]){{
-                cnt++;
+              
                 i++;
             }}
             j++;
         }
-        return cnt;
+        return i;
     }
 }
