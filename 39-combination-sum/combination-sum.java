@@ -1,34 +1,26 @@
 class Solution {
-    
-
-    Set<List<Integer>> set = new HashSet<>();
-
-    void combSum(int []candidates,int idx,List<Integer> comb,List<List<Integer>> ans,int target ){
-        if(idx == candidates.length ||target<0 ){
-            return ;
-        }
-        if(target == 0){
-            if(!set.contains(comb)){
-                set.add(new ArrayList<>(comb));
-                ans.add(new ArrayList<>(comb));
-                
+    public void f(int ind,int target,int[]candidates,List<Integer>ds,List<List<Integer>>ans){
+        if(ind ==candidates.length){
+            if(target == 0){
+                ans.add(new ArrayList<>(ds));
             }
-            return ;
+            return;
         }
-        comb.add(candidates[idx]);
-        combSum(candidates,idx+1,comb,ans, target-candidates[idx]);
-        combSum(candidates,idx,comb,ans,target-candidates[idx]);
-        comb.remove(comb.size()-1);
 
-        combSum(candidates,idx+1,comb,ans,target);
+        if(candidates[ind] <=target){
+            ds.add(candidates[ind]);
+            f(ind,target-candidates[ind],candidates,ds,ans);
+            ds.remove(ds.size()-1);
+        
+        }
+            f(ind+1,target,candidates,ds,ans);
+
+
+
     }
-
-    public List<List<Integer>> combinationSum(int[] candidates,int target) {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> comb = new ArrayList<>();
-
-        combSum(candidates,0,comb,ans,target);
-
+        f(0,target,candidates,new ArrayList<>(),ans);
         return ans;
     }
 }
