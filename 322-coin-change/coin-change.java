@@ -29,26 +29,30 @@ class Solution {
     //     return -1;
     //    }
     //    return ans;
+
+    int [] prev = new int[amount+1];
         for(int T=0;T<=amount;T++){
             if(T % coins[0] ==0){
-                 dp[0][T] = T/coins[0];
+                 prev[T] = T/coins[0];
             }else{
-                dp[0][T] = (int)1e9;
+                prev[T] = (int)1e9;
             }
         }       
 
         for(int i=1;i<n;i++){
+            int curr[] = new int[amount+1];
             for(int Tar=0;Tar<=amount;Tar++){
-                  int notTake = 0 + dp[i-1][Tar];
+                  int notTake = 0 + prev[Tar];
                   int take = (int)1e9;
                   if(coins[i]<=Tar){
-                    take = 1+ dp[i][Tar-coins[i]];
+                    take = 1+ curr[Tar-coins[i]];
                   }
 
-                 dp[i][Tar] = Math.min(take,notTake);
+                curr[Tar] = Math.min(take,notTake);
             }
+            prev = curr;
         }
-       int ans = dp[n-1][amount]; 
+       int ans = prev[amount]; 
        if(ans>=(int)1e9) return -1;
        
         return ans;
