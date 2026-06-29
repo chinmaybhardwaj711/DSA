@@ -20,32 +20,39 @@ class Solution {
        int m = word2.length();
        int dp[][] = new int[n+1][m+1];
      
-        for(int row[]:dp){
-            Arrays.fill(row,-1);
-        }
-        return f(n,m,word1,word2,dp);
+        // for(int row[]:dp){
+        //     Arrays.fill(row,-1);
+        // }
+        // return f(n,m,word1,word2,dp);
 
 
+
+    int prev[] = new int[m+1];
+     
 
     // for(int i=0;i<=n;i++){
     //     dp[i][0] =i;
     // }
-    // for(int j=0;j<=m;j++){
-    //     dp[0][j] = j;
-    // }
+    for(int j=0;j<=m;j++){
+      prev[j] = j;
+    }
 
-    // for(int i=1;i<=n;i++){
-    //     for(int j=1;j<=m;j++){
-    //         if(str1.charAt(i-1) == str2.charAt(j-1)){
-    //              dp[i][j] = 0+dp[i-1][j-1];
-    //         }else{
-    //              dp[i][j]= Math.min(1+dp[i][j-1],Math.min(1+dp[i-1][j],1+dp[i-1][j-1]));
+    for(int i=1;i<=n;i++){
+        int curr[] = new int[m+1];
+       curr[0] = i;
+        for(int j=1;j<=m;j++){
+            if(word1.charAt(i-1) == word2.charAt(j-1)){
+                 curr[j] = 0+prev[j-1];
+            }else{
+                 curr[j]= Math.min(1+curr[j-1],Math.min(1+prev[j],1+prev[j-1]));
 
-    //         }
-    //     }
+            }
+           
+        }
+         prev =curr;
        
-    // }
-    //  return dp[n][m];
+    }
+     return prev[m];
 
     }
 }
