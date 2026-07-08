@@ -16,15 +16,32 @@ class Solution {
         int num[] = new int[n+2];
         num[0] = 1;
         num[n+1] = 1;
-        int dp[][] = new int[n+1][n+1];
-        for(int row[]: dp){
-            Arrays.fill(row,-1);
-        }
+        // int dp[][] = new int[n+1][n+1];
+        // for(int row[]: dp){
+        //     Arrays.fill(row,-1);
+        // }
         for(int i=1;i<=n;i++){
             num[i] = nums[i-1];
         }
 
-        return f(1,n,num,dp);
+
+
+
+
+        int dp[][] = new int[n+2][n+2];
+
+        for(int i=n;i>=1;i--){
+            for(int j=1;j<=n;j++){
+                if(i>j) continue;
+                int max = Integer.MIN_VALUE;
+                    for(int ind=i;ind<=j;ind++){
+                        int cost = num[i-1] * num[ind] * num[j+1] + dp[i][ind-1] +  dp[ind+1][j];
+                        max = Math.max(cost,max);
+                    }
+                dp[i][j] = max;
+            }
+        }
+        return dp[1][n];
 
     }
 }
