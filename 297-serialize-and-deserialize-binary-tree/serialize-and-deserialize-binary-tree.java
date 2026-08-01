@@ -49,9 +49,9 @@ public class Codec {
                 par.left = left;
                 q.add(left);
             }
-            i++;
+           
 
-            if( i< values.length && !values[i].equals("n")){
+            if( !values[++i].equals("n")){
                 TreeNode right = new TreeNode(Integer.parseInt(values[i]));
                 par.right = right;
                 q.add(right);
