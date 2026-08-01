@@ -24,7 +24,7 @@ public class Codec {
                 res.append("n ");
                 continue;
             }
-            res.append(node.val).append(" ");
+            res.append(node.val + " ");
             q.add(node.left);
             q.add(node.right);
 
