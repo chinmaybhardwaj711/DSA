@@ -1,36 +1,63 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
+// /**
+//  * Definition for a binary tree node.
+//  * public class TreeNode {
+//  *     int val;
+//  *     TreeNode left;
+//  *     TreeNode right;
+//  *     TreeNode() {}
+//  *     TreeNode(int val) { this.val = val; }
+//  *     TreeNode(int val, TreeNode left, TreeNode right) {
+//  *         this.val = val;
+//  *         this.left = left;
+//  *         this.right = right;
+//  *     }
+//  * }
+//  */
+// class Solution {
+//     public boolean isMirror(TreeNode node1, TreeNode node2){
+//         if(node1 == null && node2 == null){
+//             return true;
+//         }
+//         if(node1 == null || node2 == null){
+//             return false;
+//         }
+
+//         if(node1.val != node2.val){
+//             return false;
+//         }
+
+//         return isMirror(node1.left,node2.right) && isMirror(node1.right,node2.left);
+//     }
+//     public boolean isSymmetric(TreeNode root) {
+
+//         return isMirror(root.left,root.right);
+
+//     }
+// }
+
+
 class Solution {
-    public boolean isMirror(TreeNode node1, TreeNode node2){
+    public boolean mirror(TreeNode node1 ,TreeNode node2){
         if(node1 == null && node2 == null){
             return true;
         }
-        if(node1 == null || node2 == null){
+        if(node2 == null || node1 == null){
             return false;
         }
-
         if(node1.val != node2.val){
             return false;
         }
+        boolean left = mirror(node1.left,node2.right);
+        boolean right = mirror(node1.right,node2.left);
 
-        return isMirror(node1.left,node2.right) && isMirror(node1.right,node2.left);
+
+        return left&& right;
     }
     public boolean isSymmetric(TreeNode root) {
-
-        return isMirror(root.left,root.right);
-
+        if( root == null){
+            return true;
+        }
+        return mirror(root.left,root.right);
+        
     }
 }
