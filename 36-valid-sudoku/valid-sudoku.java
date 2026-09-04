@@ -23,7 +23,10 @@ class Solution {
 
         for(int p=startrow;p<startrow+3;p++){
             for(int q=startcol;q<startcol+3;q++){
-                if( p!=row  &&  q!=col && board[p][q] == x){
+                if(p== row && q== col){
+                    continue;
+                }
+                if( board[p][q] == x){
                     return false;
                 }
             }
