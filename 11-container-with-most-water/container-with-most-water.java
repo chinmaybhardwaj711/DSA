@@ -3,8 +3,7 @@ class Solution {
         int lp =0;
         int rp = height.length-1;
         int area =0;
-        int leftMax =0;
-        int rightMax =0;
+        
         int maxArea =0;
         while(lp<rp){
             int width = rp-lp;
