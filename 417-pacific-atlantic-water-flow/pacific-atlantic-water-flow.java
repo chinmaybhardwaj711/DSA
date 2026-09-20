@@ -2,6 +2,9 @@ class Solution {
     public void dfs(int r,int c,boolean vis[][],int heights[][]){
         int n = heights.length;
         int m = heights[0].length;
+        if(vis[r][c] == true){
+                return;
+        }
         vis[r][c] = true;
         int dirs[][] = {{1,0},{-1,0},{0,1},{0,-1}};
         for(int neigh[]:dirs){
@@ -12,9 +15,7 @@ class Solution {
             if(nr<0 || nc<0 || nr>=n || nc>=m ){
                 continue;
             }
-             if(vis[nr][nc] == true){
-                continue;
-            }
+             
             if(heights[r][c] > heights[nr][nc]){
                 continue;
             }
