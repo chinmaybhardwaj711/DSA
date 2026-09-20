@@ -1,6 +1,8 @@
 class Solution {
     public void dfs(int[][] isConnected,int city,boolean vis[]){
-      
+        if(vis[city]){
+            return;
+        }
         vis[city] = true;
 
         for(int j=0;j<isConnected.length;j++){
