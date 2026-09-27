@@ -128,7 +128,7 @@ class Solution {
                 int v = edge[0];
                 int wt = edge[1];
 
-                if(curr.cost+wt<dist[v] && curr.stops <=k){
+                if(curr.cost+wt<dist[v] && stops <=k){
                     dist[v] = curr.cost+wt;
                     pq.offer(new Pair(v,dist[v],stops+1));
                 }
