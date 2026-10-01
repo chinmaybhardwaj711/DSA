@@ -1,5 +1,5 @@
 class Solution {
-     record Pair(int a,int b){};
+     public record Pair(int a,int b){};
 
     
     public int maxEqualAdjacentPairs(int[] nums) {
