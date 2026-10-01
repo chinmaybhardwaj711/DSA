@@ -122,7 +122,7 @@ class Solution {
             int u = curr.u;
             int stops = curr.stops;
             if(stops >k){
-                continue;
+                break;
             }
             for(int edge[]:adj.get(u)){
                 int v = edge[0];
