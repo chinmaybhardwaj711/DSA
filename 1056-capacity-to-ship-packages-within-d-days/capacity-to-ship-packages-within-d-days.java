@@ -19,7 +19,7 @@ class Solution {
             low = Math.max(w,low);
             high+=w;
         }
-        int ans =0;
+        int ans =-1;
         
 
         while(low<=high){
