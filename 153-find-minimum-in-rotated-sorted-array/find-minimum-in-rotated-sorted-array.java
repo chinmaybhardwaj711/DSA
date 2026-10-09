@@ -1,21 +1,50 @@
+// class Solution {
+//     public int findMin(int[] nums) {
+//         int n = nums.length;
+//         int low =0;
+//         int high = n-1;
+//         int ans = Integer.MAX_VALUE;
+//         while(low<=high){
+//             int mid = low+(high-low)/2;
+//             if(nums[low] < nums[mid]){
+//                 ans = Math.min(ans,nums[low]);
+//                 low = mid+1;
+//             }else{
+//                 ans = Math.min(ans,nums[mid]);
+//                 high = mid-1;
+//             }
+//         }
+//         return ans;
+
+//     }
+// }
 class Solution {
     public int findMin(int[] nums) {
-        int low =0;
-        int high = nums.length-1;
-        int ans = Integer.MAX_VALUE;
-        while(low<=high){
-            int mid = low+(high-low)/2;
-            if(nums[low] <=nums[mid]){
-                ans = Math.min(ans,nums[low]);
-                low = mid+1;
-            }else{
-                ans = Math.min(ans,nums[mid]);
-                high = mid-1;
-            }
+    int low =0;
+    int high = nums.length-1;
+    int ans =Integer.MAX_VALUE;
+
+    while(low<=high){
+        int mid = low+(high-low)/2;
+        if(nums[low] <=nums[mid]){
+            ans = Math.min(ans,nums[low]);
+            low = mid+1;
+        }else{
+            ans = Math.min(ans,nums[mid]);
+            high = mid-1;
         }
-        return ans;
     }
+    return ans;
+    }
+        
 }
+
+
+
+
+
+
+
 
 
 
@@ -38,20 +67,58 @@ class Solution {
 
 // class Solution {
 //     public int findMin(int[] nums) {
-//     int low =0;
-//     int high = nums.length-1;
-//     int ans =0;
-//     int last = nums[high];
-
+//         int low =0;
+//         int high = nums.length-1;
+//         int ans = Integer.MAX_VALUE;
 //         while(low<=high){
 //             int mid = low+(high-low)/2;
-//             if(nums[mid] <=last){
-//                 ans =nums[mid];
-//                 high = mid-1;
-//             }else{
+//             if(nums[low] <=nums[mid]){
+//                 ans = Math.min(ans,nums[low]);
 //                 low = mid+1;
+//             }else{
+//                 ans = Math.min(ans,nums[mid]);
+//                 high = mid-1;
 //             }
 //         }
 //         return ans;
 //     }
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // class Solution {
+// //     public int findMin(int[] nums) {
+// //     int low =0;
+// //     int high = nums.length-1;
+// //     int ans =0;
+// //     int last = nums[high];
+
+// //         while(low<=high){
+// //             int mid = low+(high-low)/2;
+// //             if(nums[mid] <=last){
+// //                 ans =nums[mid];
+// //                 high = mid-1;
+// //             }else{
+// //                 low = mid+1;
+// //             }
+// //         }
+// //         return ans;
+// //     }
+// // }
