@@ -137,7 +137,7 @@ class Solution {
 
         int totalCost =0;
         int cnt =0;
-        while(!pq.isEmpty() && cnt<n){
+        while(!pq.isEmpty() ){
             Pair curr = pq.poll();
             int u = curr.node;
             int wt = curr.wt;
